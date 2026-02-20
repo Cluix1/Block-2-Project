@@ -1,5 +1,8 @@
-from django.urls import include, path
+
+from django.urls import path
+
+from demo_app.views import sql_injection_demo_view
 
 urlpatterns = [
-    path("", include("demo_app.urls")),
+	path("", sql_injection_demo_view, name="sql_injection_demo"),
 ]
