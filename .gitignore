@@ -1,13 +1,23 @@
+
+# DLL files
 __pycache__/
-*.pyc
-*.pyo
-*.pyd
-*.sqlite3
-*.log
-.env
+*.py[cod]
+
+# VE folders
 .venv/
 venv/
 ENV/
+
+# Config
+.env
 .envrc
+
+# SQLite 
+*.sqlite3
+
+# Logs
+*.log
+
+# OS 
 .DS_Store
 Thumbs.db
