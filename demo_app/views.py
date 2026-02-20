@@ -12,17 +12,14 @@ USERS = [
 def simulate_sql_injection_login(username: str, password: str) -> bool:
     injection_patterns = [
         "or '1'=='1'", 'or "1"=="1"', "or 1=1", "or 'a'='a" , 'or "a"="a"', "' or '1'='1", '" or "1"="1']
-    uname = username.lower().replace(' ', '')
-    pword = password.lower().replace(' ', '')
+    uname = username.lower()
+    pword = password.lower()
     if any(pattern in uname or pattern in pword for pattern in injection_patterns):
         return True
     return any(
         user["username"] == username and user["password"] == password
         for user in USERS
     )
-
-
-def evaluate_clause(clause: str, user: dict) -> bool:
 
 
 
@@ -45,7 +42,6 @@ def sql_injection_demo_view(request):
         else:
             result = "Login failed."
 
-    # Read the HTML file and do a simple string replacement for the result
     template_path = Path(__file__).resolve().parent.parent / "templates" / "index.html"
     html_content = template_path.read_text(encoding="utf-8")
     if result:
