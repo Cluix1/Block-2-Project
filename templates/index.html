@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>SQL Injection Demo (No SQL)</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="/static/style.css" />
+  </head>
+
+  <body>
+    <header class="topbar">
+      <div class="brand">SQL Injection Demo</div>
+      <div class="byline">By Ryan Hoo</div>
+    </header>
+
+    <main class="page">
+      <section class="panel">
+        <h1>Login Simulation</h1>
+        <p>
+          This demo simulates a vulnerable login in Python. Try a normal login,
+          then try the injection string.
+        </p>
+
+        <form method="post" action="/">
+          <label>
+            Username
+            <input
+              type="text"
+              name="username"
+              placeholder="Enter username here"
+              required
+            />
+          </label>
+          <label>
+            Password
+            <input
+              type="text"
+              name="password"
+              placeholder="Enter password here"
+              required
+            />
+          </label>
+          <button type="submit">Log In</button>
+        </form>
+
+        <label class="result-label">
+          Result
+          <div class="result-box placeholder">Result will appear here after login</div>
+        </label>
+      </section>
+
+      <section class="panel">
+        <h2>Demo Instructions</h2>
+        <div class="guide">
+          <div class="guide-item">
+            <h3>Step 1: Normal Login</h3>
+            <p><strong>Username:</strong> admin</p>
+            <p><strong>Password:</strong> s3cret</p>
+            <p><strong>Expected:</strong> Regular login succeeded.</p>
+          </div>
+          <div class="guide-item">
+            <h3>Step 2: Injection Attempt</h3>
+            <p><strong>Username:</strong> admin' OR '1'='1</p>
+            <p><strong>Password:</strong> anything</p>
+            <p><strong>Expected:</strong> Injection succeeded (bypassed login).</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>
+        This tool is for educational use only and should not be used for storing
+        sensitive information.
+      </p>
+    </footer>
+  </body>
+</html>
